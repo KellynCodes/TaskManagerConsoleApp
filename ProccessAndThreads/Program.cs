@@ -31,7 +31,7 @@ public enum ChooseOption
                         KillProcess.KillProcessByInputingTheNameOfTheProcess();
                         break;
                     case (int)ChooseOption.CreateCustomThread:
-                       await CustomThread.FetchGitUser();
+                        CustomThread.FetchGitUser();
                         break;
                     default:
                         Console.WriteLine("Entered value is not in list");
