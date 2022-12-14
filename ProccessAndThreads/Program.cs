@@ -5,16 +5,17 @@ public enum ChooseOption
 {
     ListRunningTasks = 1,
     StartAProcess,
-    KillAProcess
+    KillAProcess,
+    CreateCustomThread
 }
 
     internal class Program
     {
-      static  void Main()
+      static async Task Main()
       {
             Console.Title = "KELLYNCODES TASK MANAGER";
             StringBuilder Options = new();
-            Options.AppendLine("1. List Running Task\n2. Start New Task\n3. Kill already running process");
+            Options.AppendLine("1. List Running Task\n2. Start New Task\n3. Kill already running process\n4. Create a custom Thread");
             Console.WriteLine(Options.ToString());
             if (int.TryParse(Console.ReadLine(), out int Result))
             {
@@ -28,6 +29,9 @@ public enum ChooseOption
                         break;
                         case (int)ChooseOption.KillAProcess:
                         KillProcess.KillProcessByInputingTheNameOfTheProcess();
+                        break;
+                    case (int)ChooseOption.CreateCustomThread:
+                       await CustomThread.FetchGitUser();
                         break;
                     default:
                         Console.WriteLine("Entered value is not in list");
@@ -43,7 +47,7 @@ public enum ChooseOption
                     Console.WriteLine("Your have closed this app\t Thanks for using KellynCodes TASK MANAGER");
                 }else if(userAnswer.Trim().ToUpper() == "NO")
                 {
-                    Main();
+                   await Main();
                 }
             }
       }

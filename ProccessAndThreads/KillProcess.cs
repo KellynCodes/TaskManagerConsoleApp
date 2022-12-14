@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace ProccessAndThreads
 {
@@ -12,7 +11,7 @@ namespace ProccessAndThreads
                 foreach (var processes in Process.GetProcessesByName(process.ProcessName))
                 {
                     processes.Kill(true);
-                    Console.WriteLine($"The process with an ID: {processes.Id} Process name of {processes.ProcessName} has been Stoped");
+                   Console.WriteLine($"The process with an ID: [{processes.Id}] and Process name of [{processes.ProcessName}] has been Stoped");
                 }
             }
             catch (Exception ex)
@@ -38,7 +37,7 @@ namespace ProccessAndThreads
                 foreach (var processes in Process.GetProcessesByName(ProcessName))
                 {
                     processes.Kill(true);
-                    Console.WriteLine($"The process with an ID: {processes.Id} Process name of {processes.ProcessName} has been Stoped");
+                    Console.WriteLine($"The process with an ID: [{processes.Id}] and Process name of [{processes.ProcessName}] has been Stoped");
                 }
             }
             catch (Exception ex)
