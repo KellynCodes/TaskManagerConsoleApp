@@ -19,7 +19,7 @@ namespace ProccessAndThreads
                 Console.Title = "Start a Task";
                 Console.WriteLine("Enter file name to open");
                 string fileInput = Console.ReadLine() ?? string.Empty;
-                Console.WriteLine("Enter text to serach");
+                Console.WriteLine("Enter a Thread to Open [Optional]");
                 string BrowserTab = Console.ReadLine() ?? string.Empty;
                 ProcessStartInfo processStart = new($@"{fileInput.Trim()}", $"{BrowserTab}");
                 _verbId = 0;

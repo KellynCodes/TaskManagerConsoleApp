@@ -6,7 +6,10 @@ public enum ChooseOption
     ListRunningTasks = 1,
     StartAProcess,
     KillAProcess,
-    CreateCustomThread
+    CreateCustomThread,
+    CheckIfCurrentThreadIsAlive,
+    CheckIfCurrentThreadIsBackground,
+    QuitApp
 }
 
     internal class Program
@@ -15,7 +18,7 @@ public enum ChooseOption
       {
             Console.Title = "KELLYNCODES TASK MANAGER";
             StringBuilder Options = new();
-            Options.AppendLine("1. List Running Task\n2. Start New Task\n3. Kill already running process\n4. Create a custom Thread");
+            Options.AppendLine("1. List Running Task\n2. Start New Task\n3. Kill already running process\n4. Create a custom Thread\n5. Check is the current Thread is Alive\n6. Check if current Thread is Background\n7. Quit app");
             Console.WriteLine(Options.ToString());
             if (int.TryParse(Console.ReadLine(), out int Result))
             {
@@ -33,6 +36,14 @@ public enum ChooseOption
                     case (int)ChooseOption.CreateCustomThread:
                         CustomThread.FetchGitUser();
                         break;
+                    case (int)ChooseOption.CheckIfCurrentThreadIsAlive:
+                        CheckIfaThreadIsBackgroundOrAlive.IsAlive();
+                        break;
+                    case (int)ChooseOption.CheckIfCurrentThreadIsBackground:
+                        CheckIfaThreadIsBackgroundOrAlive.IsBackground();
+                        break;
+                    case (int)ChooseOption.QuitApp:
+                        break;
                     default:
                         Console.WriteLine("Entered value is not in list");
                         break;
@@ -44,8 +55,9 @@ public enum ChooseOption
                 string userAnswer = Console.ReadLine() ?? string.Empty;
                 if(userAnswer.Trim().ToUpper() == "YES")
                 {
-                    Console.WriteLine("Your have closed this app\t Thanks for using KellynCodes TASK MANAGER");
-                }else if(userAnswer.Trim().ToUpper() == "NO")
+                        Console.WriteLine("Your have quit this app\n Thanks for using KELLYNCODES TASK MANAGER");
+                }
+                else if(userAnswer.Trim().ToUpper() == "NO")
                 {
                    await Main();
                 }

@@ -11,7 +11,7 @@ namespace ProccessAndThreads
 
         public static void FetchGitUser()
         {
-            string URL = "https://api.github.com/users/kellyncodes";
+            string URL = "https://jsonplaceholder.typicode.com/posts";
             string FormatedUrl = string.Format(URL);
             WebRequest RequestObject =  WebRequest.Create(FormatedUrl);
             RequestObject.Method = "GET";
@@ -24,10 +24,11 @@ namespace ProccessAndThreads
                 Result = streamReader.ReadToEnd();
                 streamReader.Close();
             }
-            var Users = Result.ToList();
+            var Users = Result;
             foreach(var user in Users)
             {
-                Console.WriteLine(user.ToString());
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write(user.ToString());
             }
         }
     }
