@@ -12,7 +12,7 @@ namespace ProccessAndThreads
             thread.Start();
         }
 
-        public static async void FetchDataFromApi()
+        public static async Task FetchDataFromApi()
         {
             try
             {
