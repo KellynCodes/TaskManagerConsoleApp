@@ -14,9 +14,9 @@ public enum ChooseOption
 
     internal class Program
     {
-      static async Task Main()
+      public static async Task Main()
       {
-            Console.Title = "KELLYNCODES TASK MANAGER";
+         main:   Console.Title = "KELLYNCODES TASK MANAGER";
             StringBuilder Options = new();
             Options.AppendLine("1. List Running Task\n2. Start New Task\n3. Kill already running process\n4. Create a custom Thread\n5. Check is the current Thread is Alive\n6. Check if current Thread is Background\n7. Quit app");
             Console.WriteLine(Options.ToString());
@@ -34,7 +34,7 @@ public enum ChooseOption
                         KillProcess.KillProcessByInputingTheNameOfTheProcess();
                         break;
                     case (int)ChooseOption.CreateCustomThread:
-                        CustomThread.FetchGitUser();
+                        CustomThread.BackgroundAndCustomThread();
                         break;
                     case (int)ChooseOption.CheckIfCurrentThreadIsAlive:
                         CheckIfaThreadIsBackgroundOrAlive.IsAlive();
@@ -60,6 +60,10 @@ public enum ChooseOption
                 else if(userAnswer.Trim().ToUpper() == "NO")
                 {
                    await Main();
+                }else
+                {
+                    Console.WriteLine("Please Enter Valid input for us to be sure you wanted to close this application");
+                    goto main;
                 }
             }
       }
